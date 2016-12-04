@@ -7,6 +7,7 @@ function getTaxiDistance (input){
   let direction = 0;
   let hdistance = 0;
   let vdistance = 0;
+  const coordsKeys = {};
   // break array of moves into pairs relative direction (in degrees) and distance
   const moves = 
     inputArray.map(function(item){
@@ -27,6 +28,13 @@ function getTaxiDistance (input){
     //if moving vertically, up = 1, down = -1.
       let vMult = Math.round(Math.sin(direction* Math.PI/180));
       vdistance += vMult * moves[i][1];
+      let coords = vdistance.toString() + "_" + hdistance.toString();
+      if (!(coords in coordsKeys)){
+        coordsKeys[coords] = true;
+      } 
+      else {
+        return Math.abs(vdistance) +  Math.abs(hdistance);
+      }
   }
   let distance = Math.abs(vdistance) +  Math.abs(hdistance);
   return distance;
