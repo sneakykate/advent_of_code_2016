@@ -4,12 +4,14 @@
   "description": "",
   "main": "day-1.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --compilers js:babel-core/register --recursive -w ./tests"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "babel": "^6.5.2",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
     "babel-preset-es2015": "^6.18.0",
     "chai": "^3.5.0",
     "mocha": "^3.2.0"

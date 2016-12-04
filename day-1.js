@@ -27,8 +27,9 @@ function getTaxiDistance (input){
     //if moving vertically, up = 1, down = -1.
       let vMult = Math.round(Math.sin(direction* Math.PI/180));
       vdistance += vMult * moves[i][1];
-    let distance = Math.abs(vdistance) +  Math.abs(hdistance);
   }
+  let distance = Math.abs(vdistance) +  Math.abs(hdistance);
+  return distance;
 }
 
 module.exports.solution = getTaxiDistance;
