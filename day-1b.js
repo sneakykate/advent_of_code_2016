@@ -44,7 +44,6 @@ function getTaxiDistance (input){
           coordsKeys[coords] = true;
         } 
         else {
-          console.log('dist', dist);
           return dist;
         }
       }
@@ -53,7 +52,6 @@ function getTaxiDistance (input){
       hdistance += hMult * moves[i][1];  
   }
   // let distance = Math.abs(vdistance) +  Math.abs(hdistance);
-  console.log(coordsKeys);
   return 'undefined';
 }
 
