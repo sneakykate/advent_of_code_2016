@@ -21,23 +21,40 @@ function getTaxiDistance (input){
 
   for (let i=0; i < movesLen; i ++){
     direction += moves[i][0];
-    let dirMult;
     //if we're moving horizontally, sin is 0; cos is either 1 or -1. multiply by distance traveled for relative distance compared to starting point.
       let hMult = Math.round(Math.cos(direction* Math.PI/180));
-      hdistance += hMult * moves[i][1];
+      
     //if moving vertically, up = 1, down = -1.
       let vMult = Math.round(Math.sin(direction* Math.PI/180));
-      vdistance += vMult * moves[i][1];
-      let coords = vdistance.toString() + "_" + hdistance.toString();
-      if (!(coords in coordsKeys)){
-        coordsKeys[coords] = true;
-      } 
-      else {
-        return Math.abs(vdistance) +  Math.abs(hdistance);
+      
+      //for each move, save each intersection crossed to the cache
+      for (let j = 0; j < moves[i][1]; j++){
+        let coords;
+        let dist;
+        if (vMult === 0){
+          coords = vdistance.toString() + "_" + (hdistance+(j*hMult)).toString();
+          dist = Math.abs(vdistance) +  Math.abs(hdistance+(j*hMult));
+        }
+        else {
+          coords = (vdistance+(j*vMult)).toString() + "_" + hdistance.toString();
+          dist = Math.abs(vdistance+(j*vMult)) +  Math.abs(hdistance);
+        }
+        //if not present in cache, keep looping over moves
+        if (!(coords in coordsKeys)){
+          coordsKeys[coords] = true;
+        } 
+        else {
+          console.log('dist', dist);
+          return dist;
+        }
       }
+      //then update the distance
+      vdistance += vMult * moves[i][1];
+      hdistance += hMult * moves[i][1];  
   }
-  let distance = Math.abs(vdistance) +  Math.abs(hdistance);
-  return distance;
+  // let distance = Math.abs(vdistance) +  Math.abs(hdistance);
+  console.log(coordsKeys);
+  return 'undefined';
 }
 
 module.exports.solution = getTaxiDistance;
