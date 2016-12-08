@@ -1,17 +1,31 @@
 function getPossibleTriangles(input){
   let count = 0;
   const sides = input.trim().split(/\s+/g);
-  for (let i = 0; i < sides.length; i ++){
+  for (let i = 0; i < sides.length; i +=9){
     //every third item is a side, every 9 items is a new set.
-    
-    let a = Number(rows[i][0]);
-    let b = Number(rows[i][1]);
-    let c = Number(rows[i][2]);
+    let a = Number(sides[0]);
+    let b = Number(sides[3]);
+    let c = Number(sides[6]);
     if ( a + b <= c || a + c <= b || b + c <= a){
     }
     else {
-      count++;
-      
+      count++;  
+    }
+    let d = Number(sides[1]);
+    let e = Number(sides[4]);
+    let f = Number(sides[7]);
+    if ( d + e <= f || d + f <= e || e + f <= d){
+    }
+    else {
+      count++;  
+    }
+    let g = Number(sides[2]);
+    let h = Number(sides[5]);
+    let i = Number(sides[8]);
+    if ( g + h <= i || g + i <= h || h + i <= g){
+    }
+    else {
+      count++;  
     }
   }
   return count;
