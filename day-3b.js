@@ -1,10 +1,9 @@
 function getPossibleTriangles(input){
   let count = 0;
-  const rows = input.trim().split(/\s+/g);
-  console.log(rows);
-  for (let i = 0; i < rows.length; i ++){
-    rows[i] = rows[i].trim();
-    rows[i] = rows[i].split();
+  const sides = input.trim().split(/\s+/g);
+  for (let i = 0; i < sides.length; i ++){
+    //every third item is a side, every 9 items is a new set.
+    
     let a = Number(rows[i][0]);
     let b = Number(rows[i][1]);
     let c = Number(rows[i][2]);
