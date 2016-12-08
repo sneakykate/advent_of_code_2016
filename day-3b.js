@@ -3,31 +3,35 @@ function getPossibleTriangles(input){
   const sides = input.trim().split(/\s+/g);
   for (let i = 0; i < sides.length; i +=9){
     //every third item is a side, every 9 items is a new set.
-    let a = Number(sides[0]);
-    let b = Number(sides[3]);
-    let c = Number(sides[6]);
+    let a = Number(sides[i]);
+    let b = Number(sides[i+3]);
+    let c = Number(sides[i+6]);
+    let d = Number(sides[i+1]);
+    let e = Number(sides[i+4]);
+    let f = Number(sides[i+7]);
+    let g = Number(sides[i+2]);
+    let h = Number(sides[i+5]);
+    let i = Number(sides[i+8]);
+    console.log(a, b, c);
     if ( a + b <= c || a + c <= b || b + c <= a){
     }
     else {
       count++;  
     }
-    let d = Number(sides[1]);
-    let e = Number(sides[4]);
-    let f = Number(sides[7]);
-    if ( d + e <= f || d + f <= e || e + f <= d){
-    }
-    else {
-      count++;  
-    }
-    let g = Number(sides[2]);
-    let h = Number(sides[5]);
-    let i = Number(sides[8]);
-    if ( g + h <= i || g + i <= h || h + i <= g){
-    }
-    else {
-      count++;  
-    }
+  //   
+  //   if ( d + e <= f || d + f <= e || e + f <= d){
+  //   }
+  //   else {
+  //     count++;  
+  //   }
+  // 
+  //   if ( g + h <= i || g + i <= h || h + i <= g){
+  //   }
+  //   else {
+  //     count++;  
+  //   }
   }
+  // console.log(count);
   return count;
 }
 

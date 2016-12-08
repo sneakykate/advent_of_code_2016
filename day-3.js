@@ -11,7 +11,6 @@ function getPossibleTriangles(input){
     }
     else {
       count++;
-      console.log(count, rows[i]);
     }
   }
   return count;
