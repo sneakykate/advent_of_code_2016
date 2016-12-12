@@ -12,7 +12,7 @@ function getPossibleTriangles(input){
     let f = Number(sides[i+7]);
     let g = Number(sides[i+2]);
     let h = Number(sides[i+5]);
-    let i = Number(sides[i+8]);
+    let j = Number(sides[i+8]);
     console.log(a, b, c);
     if ( a + b <= c || a + c <= b || b + c <= a){
     }
@@ -24,7 +24,7 @@ function getPossibleTriangles(input){
     else {
       count++;  
     }
-    if ( g + h <= i || g + i <= h || h + i <= g){
+    if ( g + h <= j || g + j <= h || h + j <= g){
     }
     else {
       count++;  
