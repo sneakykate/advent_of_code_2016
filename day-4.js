@@ -1,36 +1,11 @@
-function getPossibleTriangles(input){
-  let count = 0;
-  const sides = input.trim().split(/\s+/g);
-  const sidesLen = sides.length;
-  for (let i = 0; i < sidesLen; i +=9){
-    //every third item is a side, every 9 items is a new set.
-    let a = Number(sides[i]);
-    let b = Number(sides[i+3]);
-    let c = Number(sides[i+6]);
-    let d = Number(sides[i+1]);
-    let e = Number(sides[i+4]);
-    let f = Number(sides[i+7]);
-    let g = Number(sides[i+2]);
-    let h = Number(sides[i+5]);
-    let j = Number(sides[i+8]);
-    if ( a + b <= c || a + c <= b || b + c <= a){
-    }
-    else {
-      count++;  
-    }
-    if ( d + e <= f || d + f <= e || e + f <= d){
-    }
-    else {
-      count++;  
-    }
-    if ( g + h <= j || g + j <= h || h + j <= g){
-    }
-    else {
-      count++;  
-    }
-  }
-  console.log(count);
-  return count;
+function getRealRooms(input){
+  let IDsum = 0;
+  //break out each room from string
+  const rooms = input.trim().split(/\s+/g);
+  //break out test data, ID and checksum from room string, 
+  console.log('rooms', rooms);
+   
+  return IDsum;
 }
 
 const testData = `vxupkizork-sgmtkzoi-pkrrehkgt-zxgototm-644[kotgr]
@@ -969,5 +944,5 @@ ojk-nzxmzo-xviyt-xjvodib-omvdidib-265[iodvx]
 wbhsfbohwcboz-qobrm-zcuwghwqg-298[bwhoc]
 shoewudys-tou-ixyffydw-478[uszty]`
 
-module.exports.solution = getPossibleTriangles;
+module.exports.solution = getRealRooms;
 module.exports.data = testData;
