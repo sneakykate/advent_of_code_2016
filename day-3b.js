@@ -13,7 +13,6 @@ function getPossibleTriangles(input){
     let g = Number(sides[i+2]);
     let h = Number(sides[i+5]);
     let j = Number(sides[i+8]);
-    console.log(a, b, c);
     if ( a + b <= c || a + c <= b || b + c <= a){
     }
     else {
