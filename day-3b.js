@@ -19,13 +19,11 @@ function getPossibleTriangles(input){
     else {
       count++;  
     }
-    
     if ( d + e <= f || d + f <= e || e + f <= d){
     }
     else {
       count++;  
     }
-  
     if ( g + h <= i || g + i <= h || h + i <= g){
     }
     else {
