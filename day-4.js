@@ -2,9 +2,45 @@ function getRealRooms(input){
   let IDsum = 0;
   //break out each room from string
   const rooms = input.trim().split(/\s+/g);
+  const roomsLen = rooms.length;
   //break out test data, ID and checksum from room string, 
-  console.log('rooms', rooms);
-   
+  for(let i = 0; i < roomsLen; i++){
+    let noDashes = rooms[i].replace(/[-]+/g,"");
+    let numIndex = noDashes.search(/[0-9]/);
+    let brackIndex = noDashes.search(/[[]/);
+    let letters = noDashes.substring(0, numIndex);
+    let nums = Number(noDashes.substring(numIndex, brackIndex));
+    let checksum = noDashes.substring(brackIndex+1, noDashes.length-1);
+    let letterCounts = {};
+    let maxKey = '';
+    for(let j = 0; j < letters.length; j++){
+        let key = letters[j];
+        if(!letterCounts[key]){
+          letterCounts[key] = 0;
+        }
+        letterCounts[key]++;
+        if(maxKey == '' || letterCounts[key] > letterCounts[maxKey] || letterCounts[key] === letterCounts[maxKey] && key < maxKey){
+        maxKey = key;
+      }
+    }
+    if (maxKey !== checksum[0]){
+      // console.log('not a real room: max key is not first letter in checksum');
+      // console.log(noDashes, 'maxKey', maxKey, letterCounts[checksum[0]], letterCounts[checksum[1]]);
+    }
+    else if(!letterCounts[checksum[1]] || !letterCounts[checksum[2]] || !letterCounts[checksum[3]] || !letterCounts[checksum[4]]){
+      // console.log('not a real room: some checksum letter is not present');
+    }
+    else if(letterCounts[checksum[1]] < letterCounts[checksum[2]] || letterCounts[checksum[2]] < letterCounts[checksum[3]] || letterCounts[checksum[3]] < letterCounts[checksum[4]]){
+      // console.log('not a real room: greater items not listed first');
+    }
+    else if(letterCounts[checksum[1]] === letterCounts[checksum[2]] && checksum[1] > checksum[2] || letterCounts[checksum[2]] === letterCounts[checksum[3]] && checksum[2] > checksum[3] || letterCounts[checksum[3]] === letterCounts[checksum[4]] && checksum[3] > checksum[4]){
+      // console.log('not a real room: non-alphabetical equal letters');
+    }
+    else {
+      IDsum += nums;
+    }
+  }
+
   return IDsum;
 }
 
