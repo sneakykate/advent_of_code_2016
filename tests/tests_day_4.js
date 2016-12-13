@@ -15,7 +15,6 @@ describe('day 4 - real rooms', ()=>{
     expect(solution(`aaaaa-bbb-z-y-x-123[abxyz]
       a-b-c-d-e-f-g-h-987[abcde]`)).to.equal(1110);
   })
-  
   it('gives me the answer to the puzzle', ()=>{
     console.log(solution(data));
     expect(solution(data)).to.be.ok;
