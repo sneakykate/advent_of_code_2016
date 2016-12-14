@@ -37,11 +37,30 @@ function getRealRooms(input){
       // console.log('not a real room: non-alphabetical equal letters');
     }
     else {
-      IDsum += nums;
+      //legit rooms
+      let decrypted = "";
+      
+      for (let k = 0; k < letters.length; k++){
+        let newCharCode;
+        let diff = letters.charCodeAt(k) + nums % 26;
+        if(diff > 122){
+          newCharCode = 97 + (diff % 123);
+        }
+        else {
+          newCharCode = diff;
+        }
+        let newStr = String.fromCharCode(newCharCode);
+        decrypted += newStr;
+      }
+      if(decrypted.includes("north")){
+        console.log(nums);
+        console.log('letters', letters);
+        console.log(decrypted);
+        return nums;
+      }   
     }
   }
-
-  return IDsum;
+  return 0;
 }
 
 const testData = `vxupkizork-sgmtkzoi-pkrrehkgt-zxgototm-644[kotgr]
