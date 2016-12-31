@@ -1,6 +1,6 @@
 function getRealRooms(input){
   let IDsum = 0;
-  //break out each room from string
+  //break out each room from string 
   const rooms = input.trim().split(/\s+/g);
   const roomsLen = rooms.length;
   //break out test data, ID and checksum from room string, 
@@ -37,7 +37,7 @@ function getRealRooms(input){
       // console.log('not a real room: non-alphabetical equal letters');
     }
     else {
-      //legit rooms
+      //real rooms
       let decrypted = "";
       
       for (let k = 0; k < letters.length; k++){
