@@ -29,7 +29,6 @@ function getPossibleTriangles(input){
       count++;  
     }
   }
-  console.log(count);
   return count;
 }
 
