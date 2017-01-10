@@ -53,9 +53,6 @@ function getRealRooms(input){
         decrypted += newStr;
       }
       if(decrypted.includes("north")){
-        console.log(nums);
-        console.log('letters', letters);
-        console.log(decrypted);
         return nums;
       }   
     }
