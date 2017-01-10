@@ -1,6 +1,5 @@
 var md5 = require("blueimp-md5")
 
-
 function getPass(input){
   let i = 0;
   let nextHash = md5(input + i);
@@ -13,8 +12,6 @@ function getPass(input){
       pass += nextHash[5];
     }
   }
-  
-  console.log(md5('abc'));
   return pass;
 }
 
