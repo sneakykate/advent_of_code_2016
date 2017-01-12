@@ -2,21 +2,27 @@ function getMsg(input){
  let msg = '';
 
  const rows = input.split('\n');
- let places = new Array(8);
+ console.log('rows', rows)
+; let places = new Array(8);
  for (let i = 0; i < rows.length; i ++){
     rows[i] = rows[i].trim();
-    let line = rows[i].split(/\s+/g);
- for(let j = 0; j < 8; j++){
+    let line = rows[i]
+    let len = line.length;
+ for(let j = 0; j < len; j++){
    let char = line[j];
+   console.log(char, 'j ', j);
    if(places[j]){
+     console.log('there is placesj')
      places[j][char] += 1;
    }
    else{
+     console.log('nope')
      places[j] = {};
      places[j][char] = 1; 
    }
  }
   }
+  console.log(places);
 
   return msg;
 }
