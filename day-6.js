@@ -1,24 +1,22 @@
 function getMsg(input){
  let msg = '';
-
  const rows = input.split('\n');
- console.log('rows', rows)
-; let places = new Array(8);
+ let places = new Array();
  for (let i = 0; i < rows.length; i ++){
     rows[i] = rows[i].trim();
     let line = rows[i]
     let len = line.length;
  for(let j = 0; j < len; j++){
    let char = line[j];
-   console.log(char, 'j ', j);
-   if(places[j]){
-     console.log('there is placesj')
-     places[j][char] += 1;
-   }
-   else{
-     console.log('nope')
+   if(!places[j]){
      places[j] = {};
      places[j][char] = 1; 
+   }
+   else if(isNaN(places[j][char] +1)){
+     places[j][char] = 1;
+   }
+   else {
+     places[j][char] += 1;
    }
  }
   }
@@ -28,7 +26,7 @@ function getMsg(input){
 }
 
 const testData = `eedadn
-drvtee
+dpvtee
 eandsr
 raavrd
 atevrs
