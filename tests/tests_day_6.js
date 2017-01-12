@@ -8,8 +8,8 @@ describe('day 6 - repetition', ()=>{
   it('works with demo data', ()=>{
     expect(solution(testData)).to.equal('easter');
   })
-  // it('gives me the answer to the puzzle', ()=>{
-  //   console.log(solution(data));
-  //   expect(solution(data)).to.be.ok;
-  // })
+  it('gives me the answer to the puzzle', ()=>{
+    console.log(solution(data));
+    expect(solution(data)).to.be.ok;
+  })
 })

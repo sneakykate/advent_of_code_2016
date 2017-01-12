@@ -1,43 +1,15 @@
-// function getMsg(input){
-//  let msg = '';
-//  const rows = input.split('\n');
-//  let places = new Array();
-//  for (let i = 0; i < rows.length; i ++){
-//     rows[i] = rows[i].trim();
-//     let line = rows[i]
-//     let len = line.length;
-//  for(let j = 0; j < len; j++){
-//    let char = line[j];
-  //  if(!places[j]){
-  //    places[j] = {};
-  //    places[j][char] = 1; 
-  //  }
-  //  else if(isNaN(places[j][char] +1)){
-  //    places[j][char] = 1;
-  //  }
-  //  else {
-  //    places[j][char] += 1;
-  //  }
-//  }
-//   }
-//   console.log(places);
-
-//   return msg;
-// }
-
 function getMsg(input){
  let msg = '';
  const rows = input.split('\n');
+ const numrows = rows.length;
  const rowlength = rows[0].length;
 //get character in each position
  for(let i = 0; i < rowlength; i++){
    //object to store character counts
    let obj = {};
-   for(let j=0; j < rows.length; j++){
+   for(let j=0; j < numrows; j++){
     //from each row, get the character in position i
-    //if there's nothing in the object for a given character
     let char = rows[j].charAt(i);
-    console.log(char);
     //if the character isn't in the object, put it in there with count 1
     if(isNaN(obj[char] +1)){
       obj[char] = 1;
@@ -47,7 +19,6 @@ function getMsg(input){
       obj[char] += 1;
     }
    }
-
    //then get the character with max count 
    let currMax = 1;
    let maxChar = '';
@@ -59,7 +30,6 @@ function getMsg(input){
    }
    //add char to msg
    msg += maxChar;
-   console.log(msg);
  }
 
   return msg;
@@ -734,4 +704,4 @@ tngznlfd`;
 
 module.exports.testData = testData;
 module.exports.solution = getMsg;
-module.exports.data = testData;
+module.exports.data = realData;
